@@ -1,4 +1,5 @@
 import tweepy
+import re
 
 class Bot:
     def __init__(self, consumer_key, consumer_secret, access_token, access_token_secret):
@@ -14,3 +15,8 @@ class Bot:
 
     def publicar(self, api, imagem, legenda):
         api.update_with_media(filename=imagem, status=legenda)
+
+    def pegarUltimoValorDolar(self, api):
+        tweet = api.user_timeline(id = api.me().id, count = 1)[0].text
+        valor = re.search(r"[0-9]*\.[0-9]*", tweet).group()
+        return valor

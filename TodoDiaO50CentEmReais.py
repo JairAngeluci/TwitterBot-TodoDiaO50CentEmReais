@@ -15,14 +15,17 @@ access_token_secret = environ['ACCESS_SECRET']
 emojisFelizes = ["😊", "😁", "😄", "🥳", "😍", "🥰", "😻", "😆", "😋", "🤑"]
 emojisTristes = ["😭", "😢", "😞", "🙁", "🥺", "😿", "💩", "😾", "😡", "😰"]
 
+#acessar a api do twitter
+bot = Bot(consumer_key, consumer_secret, access_token, access_token_secret)
+api = bot.authenticate()
+
 # acessar o json com a cotacao do dolar e salvar o valor da cotacao com o momento da atualizacao
 cotDolar = Cotacao("https://economia.awesomeapi.com.br/last/USD-BRL")
 dolar = cotDolar.retornarValorDolar()
 dataCotacao = cotDolar.retornarData()
 
 # verificar se o dolar subiu e guardar novo valor
-arquivo = open("ImagensCriadas/info.txt", "r")
-dolarAntes = float(arquivo.readline())
+dolarAntes = float(bot.pegarUltimoValorDolar(api))
 dolarMudou = False
 dolarAumentou = False
 if (round(dolar, 2) != round(dolarAntes, 2)):
@@ -33,17 +36,13 @@ if (round(dolar, 2) != round(dolarAntes, 2)):
         dolarAumentou = False
 else:
     dolarMudou = False
-arquivo = open("ImagensCriadas/info.txt", "w")
-arquivo.write(str(dolar))
 
 # criar/sobrescrever a imagem MeioDolar.jpg
 img = Imagem()
 img.CriarImagemAlterada(dolar)
 
-# se o dolar tiver mudado, acessar a api do twitter, preparar a legenda e publicar a imagem
+# se o dolar tiver mudado, preparar a legenda e a imagem e publicar o tweet
 if (dolarMudou):
-    bot = Bot(consumer_key, consumer_secret, access_token, access_token_secret)
-    api = bot.authenticate()
     if (dolarAumentou):
         legenda = "O dólar subiu " + random.choice(emojisTristes) + "\n\nValor do dólar: R$ " + "{:.2f}".format(round(dolar, 2)) + "\nAtualizado: " + dataCotacao
     else:
