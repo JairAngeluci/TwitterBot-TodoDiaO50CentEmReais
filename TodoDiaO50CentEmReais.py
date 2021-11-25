@@ -1,9 +1,10 @@
 from logging import log
+from os import environ
+import random
+
 from Imagem import Imagem
 from Twitter import Bot
 from CotacaoDolar import Cotacao
-from os import environ
-import random
 
 # chaves de acesso da API / usuário do bot
 consumer_key = environ['CONSUMER_KEY']
@@ -12,8 +13,8 @@ access_token = environ['ACCESS_KEY']
 access_token_secret = environ['ACCESS_SECRET']
 
 # emojis felizes/tristes
-emojisFelizes = ["😊", "😁", "😄", "🥳", "😍", "🥰", "😻", "😆", "😋", "🤑"]
-emojisTristes = ["😭", "😢", "😞", "🙁", "🥺", "😿", "💩", "😾", "😡", "😰"]
+emojisFelizes = ["😊", "😁", "😄", "🥳", "😍", "🥰", "😻", "😆", "😋", "🤑", "😉", "🤩", "🤪", "🤣"]
+emojisTristes = ["😭", "😢", "😞", "🙁", "😿", "💩", "😾", "😡", "😰", "😪", "😵", "😧", "🤕", "😵"]
 
 #acessar a api do twitter
 bot = Bot(consumer_key, consumer_secret, access_token, access_token_secret)
