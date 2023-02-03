@@ -4,12 +4,12 @@
 
 ## Principais ferramentas utilizadas
 * **Conta de desenvolvedor no Twitter**
-	* Para utilizar a *Application Programming Interface* (API) do Twitter, é necessário solicitar uma conta de desenvolvedor;
+	* Para utilizar a *Application Programming Interface* (API) do Twitter, eu precisei solicitar uma conta de desenvolvedor;
 	* Para acessar a página de solicitação, [clique aqui](https://developer.twitter.com/en/apply-for-access).
 * **Biblioteca Tweepy**
 	* "Twitter for Python!";
 	* A documentação do Tweepy pode ser acessada [nesse link](http://docs.tweepy.org/en/latest/);
 	* Se precisar da ajuda de outras pessoas ou quiser compartilhar algo que fez, existe o [servidor do Discord do Tweepy](https://discord.gg/bJvqnhg).
-* **Heroku**
-	* "Heroku é uma plataforma em nuvem como um serviço que suporta várias linguagens de programação." ([Wikipédia](https://en.wikipedia.org/wiki/Heroku));
-	* A documentação do Heroku pode ser acessada [nesse link](https://devcenter.heroku.com/).
+* **Railway**
+	* Plataforma que escolhi para "rodar" o bot;
+	* A documentação do Railway pode ser acessada [nesse link](https://docs.railway.app/).
